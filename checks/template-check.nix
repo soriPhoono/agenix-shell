@@ -52,7 +52,7 @@
 
     ${flake.devShells.${system}.default.shellHook}
 
-    clean_set -e '^foo=' -e '^foo_PATH=' > set_post
+    clean_set -e '^foo=' -e '^foo_PATH=' -e '^AGENIX_SHELL_SECRETS_PATH=' > set_post
 
     # XXX no newline!  Otherwise `diff_check` will fail spuriously.
     printf > ./expected -- '%s' 'I believe that Club-Mate is overrated'

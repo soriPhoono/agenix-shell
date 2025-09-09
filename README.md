@@ -115,6 +115,7 @@ The functionality is straightforward:
    - Declares two variables per secret:
      - One containing the secret itself.
      - Another containing the path to the secret.
+   - Exports `AGENIX_SHELL_SECRETS_PATH` pointing to the base directory where all secrets are stored.
 
 Everything is highly customizable via options. Refer to [flake.parts](https://flake.parts/options/agenix-shell) for a complete list and defaults.
 

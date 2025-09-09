@@ -207,6 +207,7 @@ in {
             fi
 
             ${createSecretsPath}
+            export AGENIX_SHELL_SECRETS_PATH=$__agenix_shell_secrets_path
           ''
           + lib.concatStrings (lib.mapAttrsToList config.agenix-shell._installSecret cfg.secrets)
           + (lib.optionalString (!isDarwin) ''
@@ -228,11 +229,6 @@ in {
           __agenix_shell_secret_path="$__agenix_shell_secrets_path/${secret.name}"
 
           printf 1>&2 -- '[agenix] decrypting secret %q from %q to %q...\n' ${lib.escapeShellArgs [name secret.file]} "$__agenix_shell_secret_path"
-
-          # shellcheck disable=SC2193
-          if [ "$__agenix_shell_secret_path" != "$__agenix_shell_secrets_path/${secret.name}" ]; then
-            mkdir -p "$(dirname "$__agenix_shell_secret_path")"
-          fi
 
           (
             umask u=r,g=,o=
