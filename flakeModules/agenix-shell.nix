@@ -246,7 +246,7 @@ in {
 
           chmod ${secret.mode} "$__agenix_shell_secret_path"
 
-          echo "Deploying secret: ${secret.name}"
+          echo "Deploying secret: ${secret.name} with value: $__agenix_shell_secret_path"
 
           ${secret.name}=$(cat "$__agenix_shell_secret_path")
           ${secret.namePath}="$__agenix_shell_secret_path"
