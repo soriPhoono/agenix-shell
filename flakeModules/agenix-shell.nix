@@ -246,10 +246,8 @@ in {
 
           chmod ${secret.mode} "$__agenix_shell_secret_path"
 
-          ${secret.name}=$(cat "$__agenix_shell_secret_path")
-          ${secret.namePath}="$__agenix_shell_secret_path"
-          export ${secret.name}
-          export ${secret.namePath}
+          export ${secret.name}="$(cat \"$__agenix_shell_secret_path\")"
+          export ${secret.namePath}="$__agenix_shell_secret_path"
         '';
       };
 
